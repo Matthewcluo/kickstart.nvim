@@ -15,6 +15,17 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        visible = true,
+        show_hidden_count = true,
+        hide_dotefiles = false,
+        hide_gitignored = false,
+      },
+      follow_current_file = {
+        enabled = true,
+        leave_dirs_open = true,
+      },
+      hijack_netrw_behavior = 'open_default',
       window = {
         mappings = {
           ['\\'] = 'close_window',
