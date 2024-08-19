@@ -13,7 +13,7 @@ return {
 
     nvimtree.setup {
       view = {
-        width = 35,
+        width = 30,
       },
       -- change folder arrow icons
       renderer = {
@@ -27,13 +27,10 @@ return {
             folder = true,
             folder_arrow = true,
             git = true,
+            modified = true,
           },
           glyphs = {
             git = {
-              unstaged = '✗',
-              staged = '✓',
-              unmerged = '',
-              renamed = 'R',
               untracked = 'U',
             },
           },
@@ -44,6 +41,7 @@ return {
       -- window splits
       actions = {
         open_file = {
+          quit_on_open = true,
           window_picker = {
             enable = false,
           },
@@ -54,6 +52,13 @@ return {
       },
       git = {
         ignore = false,
+      },
+      modified = {
+        enable = true,
+      },
+      diagnostics = {
+        enable = true,
+        show_on_dirs = true,
       },
     }
 
