@@ -203,6 +203,15 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- Custom Autocommand for toggling (closing)
+-- the floating terminal when exiting terminal mode
+-- with <esc><esc> (double tap esc)
+vim.api.nvim_create_autocmd('TermLeave', {
+  callback = function()
+    vim.cmd 'Floaterminal'
+  end,
+})
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
