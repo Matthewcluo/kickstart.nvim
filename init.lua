@@ -182,6 +182,9 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>tt', '<cmd>Floaterminal<CR>', { desc = '[T]oggle Floating [T]erminal' })
 
+-- For oil.nvim: opens oil.nvim in the file's parent directory
+vim.keymap.set('n', '\\', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -900,7 +903,7 @@ require('lazy').setup({
   -- add new plugins to lua/custom/plugins/
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.alpha',
-  -- require 'custom.plugins.floaterminal',
+  require 'custom.plugins.oil',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
