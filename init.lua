@@ -201,16 +201,12 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- flash.nvim keybinds
-vim.keymap.set({ 'n', 'x', 'o' }, '<leader>ff',
-  function()
-    require('flash').jump()
-  end,
-  { desc = '[f]lash search mode' })
-vim.keymap.set({ 'n', 'x', 'o' }, '<leader>fF',
-  function()
-    require("flash").treesitter()
-  end,
-  { desc = '[F]lash Treesitter mode' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader>ff', function()
+  require('flash').jump()
+end, { desc = '[f]lash search mode' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader>fF', function()
+  require('flash').treesitter()
+end, { desc = '[F]lash Treesitter mode' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -385,7 +381,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
