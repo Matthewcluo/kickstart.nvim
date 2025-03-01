@@ -1,3 +1,7 @@
+# NOTE
+I have moved my nvim config folder into my dotfiles folder/repo
+this repo is no longer used
+
 # kickstart.nvim
 
 ## Introduction
