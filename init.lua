@@ -200,6 +200,18 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- flash.nvim keybinds
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader>ff',
+  function()
+    require('flash').jump()
+  end,
+  { desc = '[f]lash search mode' })
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader>fF',
+  function()
+    require("flash").treesitter()
+  end,
+  { desc = '[F]lash Treesitter mode' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -306,6 +318,7 @@ require('lazy').setup({
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>e', group = '[E]xplore file tree' },
+        { '<leader>f', group = '[F]ormating/[F]lash' },
       }
     end,
   },
@@ -656,12 +669,12 @@ require('lazy').setup({
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>fb',
         function()
           require('conform').format { async = true, lsp_fallback = true }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[F]ormat [B]uffer',
       },
     },
     opts = {
@@ -913,6 +926,7 @@ require('lazy').setup({
   require 'custom.plugins.nvim-tree',
   require 'custom.plugins.alpha',
   require 'custom.plugins.oil',
+  require 'custom.plugins.flash',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
